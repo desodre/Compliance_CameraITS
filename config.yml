@@ -13,24 +13,24 @@
 # limitations under the License.
 
 TestBeds:
-  - Name: TEST_BED_MANUAL  # Need 'tablet' in name for tablet scenes
+  - Name: TEST_BED_MANUAL  # Need 'tablet' in name for tablet scenes TEST_BED_TABLET_SCENES
     # Use TEST_BED_MANUAL for manual testing and remove below lines:
     #     - serial <tablet_id>
     #       label: tablet
     # Test configuration for scenes[0:4, 6]
     Controllers:
         AndroidDevice:
-          - serial: N75ET30108  # quotes needed if serial id entirely numeric
+          - serial: 10.10.232.89:3108  # quotes needed if serial id entirely numeric
             label: dut
-              #- serial: <tablet-id>  # quotes needed if serial id entirely numeric
-              #label: tablet
+          - serial: 10.10.232.87:3108  # quotes needed if serial id entirely numeric
+            label: tablet
     TestParams:
       brightness: 192
       chart_distance: 22.0
       debug_mode: "False"  # quotes needed
       lighting_cntl: <controller-type>  # can be arduino or "None"
       lighting_ch: <controller-channel>
-      camera: <camera-id>
+      camera: 1
       scene: <scene-name>  # if <scene-name> runs all scenes
       foldable_device: "False"  # "True" if testing foldable device
 
@@ -39,7 +39,7 @@ TestBeds:
     # Test configuration for sensor_fusion/test_sensor_fusion.py
     Controllers:
         AndroidDevice:
-          - serial: N75ET30108  # quotes needed if serial id entirely numeric
+          - serial: 10.10.232.89:3108  # quotes needed if serial id entirely numeric
             label: dut
     TestParams:
       fps: 30
@@ -47,9 +47,9 @@ TestBeds:
       test_length: 7
       debug_mode: "False"  # quotes are needed here
       chart_distance: 25
-      rotator_cntl: arduino  # Note: only SF supports manual
+      rotator_cntl: arduino  # Note only SF supports manual
       rotator_ch: 1
-      camera: <camera-id>
+      camera: 1
       foldable_device: "False"  # "True" if testing foldable device
       tablet_device: "False"  # "True" if testing tablet device
       lighting_cntl: arduino  # can be arduino or "None"

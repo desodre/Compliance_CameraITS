@@ -76,6 +76,7 @@ TABLET_ALLOWLIST = (
     'nabu',  # Xiaomi Pad 5
     'xun',  # Xiaomi Redmi Pad SE
     'yunluo',  # Xiaomi Redmi Pad
+    'tb370fu' # 
 )
 TABLET_DEFAULT_BRIGHTNESS = 192  # 8-bit tablet 75% brightness
 TABLET_LEGACY_BRIGHTNESS = 96
@@ -1469,7 +1470,7 @@ class ItsSession(object):
         bufs[self._camera_id][fmt].append(buf)
         nbufs += 1
       elif json_obj[_TAG_STR] == 'yuvImage':
-        buf_size = numpy.product(buf.shape)
+        buf_size = numpy.prod(buf.shape)
         yuv_bufs[self._camera_id][buf_size].append(buf)
         nbufs += 1
       elif json_obj[_TAG_STR] == 'captureResults':
@@ -1500,7 +1501,7 @@ class ItsSession(object):
             if x == b'yuvImage':
               physical_id = json_obj[_TAG_STR][len(x):]
               if physical_id in cam_ids:
-                buf_size = numpy.product(buf.shape)
+                buf_size = numpy.prod(buf.shape)
                 yuv_bufs[physical_id][buf_size].append(buf)
                 nbufs += 1
             else:
@@ -2019,7 +2020,7 @@ class ItsSession(object):
         # and cannot be accessed.
         nbufs += 1
       elif json_obj[_TAG_STR] == 'yuvImage':
-        buf_size = numpy.product(buf.shape)
+        buf_size = numpy.prod(buf.shape)
         yuv_bufs[camera_id][buf_size].append(buf)
         nbufs += 1
       elif json_obj[_TAG_STR] == 'captureResults':
@@ -2037,7 +2038,7 @@ class ItsSession(object):
             if x == b'yuvImage':
               physical_id = json_obj[_TAG_STR][len(x):]
               if physical_id in cam_ids:
-                buf_size = numpy.product(buf.shape)
+                buf_size = numpy.prod(buf.shape)
                 yuv_bufs[physical_id][buf_size].append(buf)
                 nbufs += 1
             else:
