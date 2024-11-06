@@ -240,6 +240,8 @@ def report_result(device_id, camera_id, results):
   cmd = (f"{adb} shell am broadcast -a {ACTION_ITS_RESULT} --es {EXTRA_VERSION}"
          f" {CURRENT_ITS_VERSION} --es {EXTRA_CAMERA_ID} {camera_id} --es "
          f"{EXTRA_RESULTS} \'{json_results}\'")
+  # cmd = """adb -s N74I420134 shell am broadcast -a com.android.cts.verifier.camera.its.ACTION_ITS_RESULT --es camera.its.extra.VERSION 1.0 --es camera.its.extra.CAMERA_ID 1 --es camera.its.extra.RESULTS '{"scene0": {"result": "NOT_EXECUTED"}, "scene1_1": {"result": "NOT_EXECUTED"}, "scene1_2": {"result": "NOT_EXECUTED"}, "scene2_a": {"result": "NOT_EXECUTED"}, "scene2_b": {"result": "NOT_EXECUTED"}, "scene2_c": {"result": "NOT_EXECUTED"}, "scene2_d": {"result": "NOT_EXECUTED"}, "scene2_e": {"result": "NOT_EXECUTED"}, "scene2_f": {"result": "NOT_EXECUTED"}, "scene3": {"result": "NOT_EXECUTED"}, "scene4": {"result": "NOT_EXECUTED"}, "scene6": {"result": "NOT_EXECUTED"}, "scene7": {"result": "NOT_EXECUTED"}, "scene8": {"result": "NOT_EXECUTED"}, "scene9": {"result": "NOT_EXECUTED"}, "scene_extensions/scene_hdr": {"result": "NOT_EXECUTED"}, "scene_extensions/scene_low_light": {"result": "PASS", "TEST_STATUS": [{"test": "test_low_light_boost_extension", "status": "SKIP"}, {"test": "test_night_extension", "status": "PASS"}], "mpc_metrics": [], "performance_metrics": [], "summary": "/sdcard/its_camera1_scene_extensions/scene_low_light.txt", "start": 1728651774761, "end": 1728651846596}, "scene_video": {"result": "NOT_EXECUTED"}, "scene5": {"result": "NOT_EXECUTED"}, "sensor_fusion": {"result": "NOT_EXECUTED"}, "feature_combination": {"result": "NOT_EXECUTED"}, "scene_flash": {"result": "NOT_EXECUTED"}}'"""
+  # print(cmd)
   its_device_utils.run(cmd)
 
 

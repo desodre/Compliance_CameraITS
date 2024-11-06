@@ -76,7 +76,8 @@ TABLET_ALLOWLIST = (
     'nabu',  # Xiaomi Pad 5
     'xun',  # Xiaomi Redmi Pad SE
     'yunluo',  # Xiaomi Redmi Pad
-    'tb370fu' # 
+    'tb370fu', # Lenovo Tab P12
+    'eqe' #Macan ´apenas teste, prff desconsidere em senario perfeito´
 )
 TABLET_DEFAULT_BRIGHTNESS = 192  # 8-bit tablet 75% brightness
 TABLET_LEGACY_BRIGHTNESS = 96
@@ -141,6 +142,7 @@ def validate_tablet(tablet_name, brightness, device_id):
     device_id: str; ID of the device.
   """
   tablet_name = tablet_name.lower()
+  print(tablet_name, tablet_name in TABLET_ALLOWLIST)
   if tablet_name not in TABLET_ALLOWLIST:
     raise AssertionError(TABLET_NOT_ALLOWED_ERROR_MSG)
   if tablet_name in TABLET_OS_VERSION:

@@ -83,7 +83,8 @@ do
 done
 
 echo -e "\n*****Please execute below adb command on your dut before running the tests*****\n"
-echo -e "adb -s <device_id> shell am compat enable ALLOW_TEST_API_ACCESS com.android.cts.verifier\n\n"
+echo -e "adb -s $1 shell am compat enable ALLOW_TEST_API_ACCESS com.android.cts.verifier\n\n"
+
 
 # Rename libtinfo.so.6
 python_paths=$(which python)

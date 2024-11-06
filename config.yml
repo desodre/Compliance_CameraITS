@@ -13,23 +13,23 @@
 # limitations under the License.
 
 TestBeds:
-  - Name: TEST_BED_MANUAL  # Need 'tablet' in name for tablet scenes TEST_BED_TABLET_SCENES
+  - Name: TEST_BED_TABLET_SCENES  # Need 'tablet' in name for tablet scenes TEST_BED_TABLET_SCENES
     # Use TEST_BED_MANUAL for manual testing and remove below lines:
     #     - serial <tablet_id>
     #       label: tablet
     # Test configuration for scenes[0:4, 6]
     Controllers:
         AndroidDevice:
-          - serial: 10.10.232.89:3108  # quotes needed if serial id entirely numeric
+          - serial: NTPE4P0185  # quotes needed if serial id entirely numeric
             label: dut
-          - serial: 10.10.232.87:3108  # quotes needed if serial id entirely numeric
+          - serial: 10.10.232.178:3108 # quotes needed if serial id entirely numeric
             label: tablet
     TestParams:
       brightness: 192
-      chart_distance: 22.0
+      chart_distance: 20.0
       debug_mode: "False"  # quotes needed
-      lighting_cntl: <controller-type>  # can be arduino or "None"
-      lighting_ch: <controller-channel>
+      lighting_cntl: None  # can be arduino or "None"
+      lighting_ch: 1
       camera: 1
       scene: <scene-name>  # if <scene-name> runs all scenes
       foldable_device: "False"  # "True" if testing foldable device
@@ -39,7 +39,7 @@ TestBeds:
     # Test configuration for sensor_fusion/test_sensor_fusion.py
     Controllers:
         AndroidDevice:
-          - serial: 10.10.232.89:3108  # quotes needed if serial id entirely numeric
+          - serial: NTPE4P0185  # quotes needed if serial id entirely numeric
             label: dut
     TestParams:
       fps: 30

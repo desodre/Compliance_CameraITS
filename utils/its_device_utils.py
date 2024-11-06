@@ -20,7 +20,7 @@ import subprocess
 ITS_TEST_ACTIVITY = 'com.android.cts.verifier/.camera.its.ItsTestActivity'
 
 
-def run(cmd):
+def run(cmd:str):
   """Replacement for os.system, with hiding of stdout+stderr messages.
 
   Args:
